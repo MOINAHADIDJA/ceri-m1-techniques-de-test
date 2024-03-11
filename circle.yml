@@ -7,6 +7,9 @@ jobs:
 
     working_directory: ~/project
 
+    orbs:
+      codecov: codecov/codecov@4.0.1
+
     steps:
       - checkout
 
@@ -14,11 +17,7 @@ jobs:
           - name: Build and Run Tests
             command: mvn test
 
-          - name: Upload coverage reports to Codecov
-            uses: codecov/codecov-action@v4.0.1
-            with:
-             token: ${{ secrets.CODECOV_TOKEN }}
-             slug: MOINAHADIDJA/ceri-m1-techniques-de-test
+
 
 workflows:
   version: 2
@@ -29,3 +28,7 @@ workflows:
             branches:
               only:
                 - master
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
