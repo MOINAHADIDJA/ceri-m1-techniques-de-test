@@ -1,3 +1,20 @@
+
+
+## Nom et Prenom
+
+- Moinahadidja Mohamed Chakir
+
+## Groupe
+- ILSEN CLA
+
+## Badges
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/MOINAHADIDJA/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/MOINAHADIDJA/ceri-m1-techniques-de-test/tree/master)
+
+[![codecov](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test/graph/badge.svg?token=R8S81SVJOP)](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test)
+
+
+
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
