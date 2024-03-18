@@ -1,0 +1,29 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+
+    working_directory: ~/ceri-m1-techniques-de-test
+
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: mvn test
+      - run:
+          name: Coverage to Codecov
+          command: |
+            echo 'export CODECOV_TOKEN=${CODECOV_TOKEN}' >> $BASH_ENV
+            source $BASH_ENV
+            bash <(curl -s https://codecov.io/bash)
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
