@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonMetadataProviderImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP1 Project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonMetadataProviderImpl.java</span></div><h1>PokemonMetadataProviderImpl.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class PokemonMetadataProviderImpl implements IPokemonMetadataProvider{
+
+    private Map&lt;Integer, PokemonMetadata&gt; metadataMap;
+
+<span class="fc" id="L10">    public PokemonMetadataProviderImpl() {</span>
+<span class="fc" id="L11">        this.metadataMap = new HashMap&lt;&gt;();</span>
+        // Ajout de métadata de chaque Pokémon
+<span class="fc" id="L13">        metadataMap.put(1, new PokemonMetadata(1, &quot;Bulbasaur&quot;, 126, 126, 90));</span>
+<span class="fc" id="L14">        metadataMap.put(2, new PokemonMetadata(2, &quot;Ivysaur&quot;, 156, 158, 120));</span>
+<span class="fc" id="L15">        metadataMap.put(3, new PokemonMetadata(3, &quot;Pikachu&quot;, 112, 96, 70));</span>
+
+
+<span class="fc" id="L18">    }</span>
+
+    @Override
+    public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
+<span class="fc" id="L22">        PokemonMetadata metadata = metadataMap.get(index);</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (metadata == null) {</span>
+<span class="nc" id="L24">            throw new PokedexException(&quot;Aucune métadata trouvée pour Pokemon avec index: &quot; + index);</span>
+        }
+<span class="fc" id="L26">        return metadata;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

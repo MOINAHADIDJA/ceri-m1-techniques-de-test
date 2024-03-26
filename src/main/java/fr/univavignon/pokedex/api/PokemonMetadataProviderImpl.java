@@ -12,6 +12,8 @@ public class PokemonMetadataProviderImpl implements IPokemonMetadataProvider{
         // Ajout de métadata de chaque Pokémon
         metadataMap.put(1, new PokemonMetadata(1, "Bulbasaur", 126, 126, 90));
         metadataMap.put(2, new PokemonMetadata(2, "Ivysaur", 156, 158, 120));
+        metadataMap.put(3, new PokemonMetadata(3, "Pikachu", 112, 96, 70));
+
 
     }
 

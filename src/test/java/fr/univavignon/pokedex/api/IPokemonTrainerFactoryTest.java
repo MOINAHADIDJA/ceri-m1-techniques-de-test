@@ -11,27 +11,12 @@ public class IPokemonTrainerFactoryTest {
 
     @Test
     public void testCreateTrainer() {
-        // Mock des dépendances
-        IPokedexFactory pokedexFactory = mock(IPokedexFactory.class);
-        IPokedex pokedex = mock(IPokedex.class);
-
-        // Mock de IPokemonTrainerFactory
-        IPokemonTrainerFactory trainerFactory = mock(IPokemonTrainerFactory.class);
-
-        // Création d'un PokemonTrainer fictif pour la comparaison
-        PokemonTrainer expectedTrainer = new PokemonTrainer("Ash", Team.MYSTIC, pokedex);
-
-        // Définir le comportement attendu lors de l'appel à createTrainer
-        when(trainerFactory.createTrainer("Ash", Team.MYSTIC, pokedexFactory)).thenReturn(expectedTrainer);
-
-        // Appeler la méthode createTrainer
-        PokemonTrainer actualTrainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, pokedexFactory);
-
-        // Vérifier que le dresseur créé correspond au dresseur attendu
-        assertEquals("The trainer's name should match the provided name.", expectedTrainer.getName(), actualTrainer.getName());
-        assertEquals("The trainer's team should match the provided team.", expectedTrainer.getTeam(), actualTrainer.getTeam());
-
-        // Vérifier que le dresseur a un Pokedex
-        assertNotNull("L'entraîneur doit avoir un Pokedex.",actualTrainer.getPokedex());
+        IPokemonTrainerFactory trainerFactory = new PokemonTrainerFactoryImpl();
+        IPokedexFactory pokedexFactory = new PokedexFactoryImpl();
+        PokemonTrainer trainer = trainerFactory.createTrainer("Ash", Team.MYSTIC, pokedexFactory);
+        assertNotNull(trainer);
+        assertEquals("Ash", trainer.getName());
+        assertEquals(Team.MYSTIC, trainer.getTeam());
+        assertNotNull(trainer.getPokedex());
     }
 }
