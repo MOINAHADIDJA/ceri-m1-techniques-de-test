@@ -30,32 +30,34 @@ public class PokedexImpl implements IPokedex{
 
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-<span class="pc bpc" id="L33" title="1 of 4 branches missed.">        if (id &lt; 0 || id &gt;= pokemons.size()) {</span>
-<span class="fc" id="L34">            throw new PokedexException(&quot;Invalid Pokemon index: &quot; + id);</span>
-        }
-<span class="fc" id="L36">        return pokemons.get(id);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (Pokemon pokemon : pokemons) {</span>
+<span class="pc bpc" id="L34" title="2 of 4 branches missed.">            if (pokemon != null &amp;&amp; pokemon.getIndex() == id) {</span>
+<span class="fc" id="L35">                return pokemon;</span>
+            }
+<span class="nc" id="L37">        }</span>
+<span class="fc" id="L38">        throw new PokedexException(&quot;Pokemon with ID &quot; + id + &quot; not found.&quot;);</span>
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="fc" id="L41">        return new ArrayList&lt;&gt;(pokemons); // Return a copy to prevent modification</span>
+<span class="fc" id="L43">        return new ArrayList&lt;&gt;(pokemons); // Return a copy to prevent modification</span>
     }
 
     @Override
     public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="fc" id="L46">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
-<span class="fc" id="L47">        sortedPokemons.sort(order);</span>
-<span class="fc" id="L48">        return sortedPokemons;</span>
+<span class="fc" id="L48">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
+<span class="fc" id="L49">        sortedPokemons.sort(order);</span>
+<span class="fc" id="L50">        return sortedPokemons;</span>
     }
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="fc" id="L53">        return metadataProvider.getPokemonMetadata(index);</span>
+<span class="nc" id="L55">        return metadataProvider.getPokemonMetadata(index);</span>
     }
 
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="fc" id="L58">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+<span class="fc" id="L60">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
     }
 }
 

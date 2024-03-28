@@ -1,12 +1,19 @@
 package fr.univavignon.pokedex.api;
 
 public class PokemonTrainerFactoryImpl implements IPokemonTrainerFactory{
+
+    private IPokemonMetadataProvider metaProvider;
+    private IPokemonFactory pfactory;
+
+    public PokemonTrainerFactoryImpl(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
+        this.metaProvider = metadataProvider;
+        this.pfactory = pokemonFactory;
+    }
     @Override
     public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
 
-            IPokemonMetadataProvider pMetaProvider = new PokemonMetadataProviderImpl();
-            IPokemonFactory pfactory = new PokemonFactoryImpl();
-            IPokedex pokedex = pokedexFactory.createPokedex(pMetaProvider,pfactory );
+
+            IPokedex pokedex = pokedexFactory.createPokedex(metaProvider,pfactory );
             return new PokemonTrainer(name, team, pokedex);
 
     }

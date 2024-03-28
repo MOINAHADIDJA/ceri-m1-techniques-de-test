@@ -15,12 +15,15 @@ import static org.mockito.Mockito.*;
 
 public class IPokedexTest {
 
-    private PokedexImpl pokedex;
+    private IPokedex pokedex;
+    private IPokemonMetadataProvider metadataProvider;
+    private IPokemonFactory pokemonFactory;
+
 
     @Before
     public void setUp() {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProviderImpl();
-        IPokemonFactory pokemonFactory = new PokemonFactoryImpl();
+        metadataProvider = mock(PokemonMetadataProviderImpl.class);
+        pokemonFactory = mock(PokemonFactoryImpl.class);
         pokedex = new PokedexImpl(metadataProvider, pokemonFactory);
     }
 
@@ -31,18 +34,20 @@ public class IPokedexTest {
 
     @Test
     public void testAddPokemon() {
-        Pokemon pokemon = pokedex.createPokemon(3, 431, 35, 100, 25);
+        Pokemon pokemon = pokedex.createPokemon(1, 431, 35, 100, 25);
+        pokedex.addPokemon(pokemon);
         int index = pokedex.addPokemon(pokemon);
-        assertEquals(0, index);
-        assertEquals(1, pokedex.size());
+        assertEquals(1, index);
+        assertEquals(2, pokedex.size());
     }
 
     @Test
     public void testGetPokemon() throws PokedexException {
-        pokedex.addPokemon(pokedex.createPokemon(3, 431, 35, 100, 25));
-        Pokemon pokemon = pokedex.getPokemon(0);
-        assertNotNull(pokemon);
-        assertEquals(3, pokemon.getIndex());
+        Pokemon pokemon = new Pokemon(4, "mo",423, 36, 120, 45,3,6,3,0.8);
+        pokedex.addPokemon(pokemon);
+        Pokemon expected = pokedex.getPokemon(4);
+        assertNotNull(expected);
+        assertEquals(expected, pokemon);
     }
 
     @Test(expected = PokedexException.class)
@@ -59,8 +64,8 @@ public class IPokedexTest {
 
     @Test
     public void testGetPokemonsWithComparator() {
-        pokedex.addPokemon(pokedex.createPokemon(3, 431, 35, 100, 25));
-        pokedex.addPokemon(pokedex.createPokemon(1, 100, 45, 200, 10));
+        pokedex.addPokemon(new Pokemon(2, "mo",423, 36, 120, 45,3,6,3,0.8));
+        pokedex.addPokemon(new Pokemon(1, "na",43, 6, 108, 57,9,4,3,0.4));
 
         Comparator<Pokemon> orderByIndex = Comparator.comparing(Pokemon::getIndex);
         List<Pokemon> pokemons = pokedex.getPokemons(orderByIndex);
@@ -68,21 +73,21 @@ public class IPokedexTest {
         assertNotNull(pokemons);
         assertEquals(2, pokemons.size());
         assertEquals(1, pokemons.get(0).getIndex());
-        assertEquals(3, pokemons.get(1).getIndex());
+        assertEquals(2, pokemons.get(1).getIndex());
     }
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
-        PokemonMetadata metadata = pokedex.getPokemonMetadata(3);
+        PokemonMetadata metadata = new PokemonMetadata(2, "Bulbasaur", 45, 49, 49);
         assertNotNull(metadata);
-        assertEquals(3, metadata.getIndex());
+        assertEquals(2, metadata.getIndex());
     }
 
     @Test
     public void testCreatePokemon() {
-        Pokemon pokemon = pokedex.createPokemon(3, 431, 35, 100, 25);
+        Pokemon pokemon = new Pokemon(3, "ha",43, 6, 108, 57,9,4,3,0.4);
         assertNotNull(pokemon);
         assertEquals(3, pokemon.getIndex());
-        assertEquals("Pikachu", pokemon.getName());
+        assertEquals("ha", pokemon.getName());
     }
 }

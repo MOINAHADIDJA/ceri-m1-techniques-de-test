@@ -8,10 +8,11 @@ import static org.mockito.Mockito.*;
 
 public class IPokemonMetdataProviderTest {
 
+    private IPokemonMetadataProvider metadataProvider;
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
-        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProviderImpl();
+        metadataProvider = new PokemonMetadataProviderImpl();
         PokemonMetadata metadata = metadataProvider.getPokemonMetadata(1);
         assertNotNull(metadata);
         assertEquals(1, metadata.getIndex());
