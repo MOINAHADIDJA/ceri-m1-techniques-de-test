@@ -13,7 +13,45 @@
 
 [![codecov](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test/graph/badge.svg?token=R8S81SVJOP)](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test)
 
+## Implémentation
 
+Les implémentations concrètes des interfaces sont fournies par les classes telles que PokedexImpl, PokemonFactoryImpl, PokemonMetadataProviderImpl, etc.
+
+Factories : Les factories sont utilisées pour créer les instances des différentes composantes de l'API. Cela permet de déléguer la responsabilité de la création d'objets à des composantes dédiées, ce qui facilite la gestion des dépendances et améliore la modularité du code.
+
+- IPokedex
+
+    Implémentation : PokedexImpl
+
+    Description : Cette classe implémente l'interface IPokedex et fournit les fonctionnalités pour gérer les Pokémon dans le Pokédex, telles que l'ajout de nouveaux Pokémon, la récupération des Pokémon existants, etc.
+    
+
+- IPokemonFactory
+
+    Implémentation : PokemonFactoryImpl
+
+    Description : Cette classe implémente l'interface IPokemonFactory et fournit une méthode pour créer de nouveaux Pokémon à partir des statistiques spécifiées.
+
+
+- IPokedexFactory
+
+    Implémentation : PokedexFactoryImpl
+
+    Description : Cette interface définit une méthode permettant de créer des instances de la classe Pokedex, qui sont utilisées pour gérer les Pokémon dans le Pokédex. Une implémentation typique de cette interface, telle que PokedexFactoryImpl, utilise un IPokemonMetadataProvider et un IPokemonFactory pour créer un nouveau Pokédex. Cette interface joue un rôle crucial dans la création de nouveaux Pokédex pour les dresseurs de Pokémon.
+
+
+- IPokemonMetadataProvider
+
+    Implémentation : PokemonMetadataProviderImpl
+
+    Description : Cette classe implémente l'interface IPokemonMetadataProvider et fournit une méthode pour récupérer les métadonnées des Pokémon, telles que leur nom, leurs statistiques de base, etc.
+
+
+- IPokemonTrainerFactory
+
+    Implémentation : PokemonTrainerFactoryImpl
+
+    Description : Cette classe implémente l'interface IPokemonTrainerFactory et fournit une méthode pour créer de nouveaux dresseurs de Pokémon.
 
 # UCE Génie Logiciel Avancé : Techniques de tests
 
