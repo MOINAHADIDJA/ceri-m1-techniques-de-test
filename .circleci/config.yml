@@ -22,7 +22,8 @@ jobs:
           name : Run checkStyle
           command : |
             wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
-            java -jar checkstyle-8.44-all.jar src/*
+            wget https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+            java -jar checkstyle-8.44-all.jar -c google_checks.xml src/*
 
 workflows:
   version: 2
