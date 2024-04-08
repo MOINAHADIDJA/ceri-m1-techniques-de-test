@@ -18,6 +18,10 @@ jobs:
             echo 'export CODECOV_TOKEN=${CODECOV_TOKEN}' >> $BASH_ENV
             source $BASH_ENV
             bash <(curl -s https://codecov.io/bash)
+      - run:
+          name : Run checkStyle
+          command : wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
+              java -jar checkstyle-8.44-all.jar
 
 workflows:
   version: 2
