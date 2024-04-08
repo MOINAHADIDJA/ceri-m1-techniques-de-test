@@ -22,7 +22,7 @@ jobs:
           name : Run checkStyle
           command : |
             wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.44/checkstyle-8.44-all.jar
-            java -jar checkstyle-8.44-all.jar
+            java -jar checkstyle-8.44-all.jar src/*
 
 workflows:
   version: 2
