@@ -21,7 +21,7 @@ public class PokedexImpl implements IPokedex {
      * @param pokemonFactory   La fabrique de Pokémon.
      */
     public PokedexImpl(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {
-        this.pokemons = new ArrayList<>();
+        this.pokemons = new ArrayList<>();;
         this.metadataProvider = metadataProvider;
         this.pokemonFactory = pokemonFactory;
     }
