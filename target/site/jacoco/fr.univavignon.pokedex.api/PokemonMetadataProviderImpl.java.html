@@ -3,30 +3,39 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Implémentation de l'interface IPokemonMetadataProvider pour fournir les métadonnées des Pokémon.
+ */
 public class PokemonMetadataProviderImpl implements IPokemonMetadataProvider{
 
     private Map&lt;Integer, PokemonMetadata&gt; metadataMap;
 
-<span class="fc" id="L10">    public PokemonMetadataProviderImpl() {</span>
-<span class="fc" id="L11">        this.metadataMap = new HashMap&lt;&gt;();</span>
-        // Ajout de métadata de chaque Pokémon
-<span class="fc" id="L13">        metadataMap.put(1, new PokemonMetadata(1, &quot;Bulbasaur&quot;, 126, 126, 90));</span>
-<span class="fc" id="L14">        metadataMap.put(2, new PokemonMetadata(2, &quot;Ivysaur&quot;, 156, 158, 120));</span>
-<span class="fc" id="L15">        metadataMap.put(3, new PokemonMetadata(3, &quot;Pikachu&quot;, 112, 96, 70));</span>
+    /**
+     * Constructeur par défaut de PokemonMetadataProviderImpl.
+     * Initialise une map contenant les métadonnées de certains Pokémon.
+     */
+<span class="fc" id="L17">    public PokemonMetadataProviderImpl() {</span>
+<span class="fc" id="L18">        this.metadataMap = new HashMap&lt;&gt;();</span>
+        // Ajout de métadonnées pour chaque Pokémon
+<span class="fc" id="L20">        metadataMap.put(1, new PokemonMetadata(1, &quot;Bulbasaur&quot;, 126, 126, 90));</span>
+<span class="fc" id="L21">        metadataMap.put(2, new PokemonMetadata(2, &quot;Ivysaur&quot;, 156, 158, 120));</span>
+<span class="fc" id="L22">        metadataMap.put(3, new PokemonMetadata(3, &quot;Pikachu&quot;, 112, 96, 70));</span>
+<span class="fc" id="L23">    }</span>
 
-
-<span class="fc" id="L18">    }</span>
-
+    /**
+     * Récupère les métadonnées d'un Pokémon à partir de son index.
+     *
+     * @param index L'index du Pokémon dont on veut récupérer les métadonnées.
+     * @return Les métadonnées du Pokémon correspondant à l'index spécifié.
+     * @throws PokedexException Si aucune métadonnée n'est trouvée pour le Pokémon avec l'index donné.
+     */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="fc" id="L22">        PokemonMetadata metadata = metadataMap.get(index);</span>
-<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if (metadata == null) {</span>
-<span class="nc" id="L24">            throw new PokedexException(&quot;Aucune métadata trouvée pour Pokemon avec index: &quot; + index);</span>
+<span class="fc" id="L34">        PokemonMetadata metadata = metadataMap.get(index);</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (metadata == null) {</span>
+<span class="nc" id="L36">            throw new PokedexException(&quot;Aucune métadonnée trouvée pour le Pokémon avec l'index: &quot; + index);</span>
         }
-<span class="fc" id="L26">        return metadata;</span>
+<span class="fc" id="L38">        return metadata;</span>
     }
-
-
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

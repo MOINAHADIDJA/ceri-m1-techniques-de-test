@@ -9,7 +9,7 @@ public interface IPokedexFactory {
 
 	/**
 	 * Creates a new pokedex instance using the given 
-	 * <tt>metadataProvider</tt> and <tt>pokemonFactory</tt>. 
+	 * <p>metadataProvider</p> and <p>pokemonFactory</p>. 
 	 * 
 	 * @param metadataProvider Metadata provider the created pokedex will use.
 	 * @param pokemonFactory Pokemon factory the created pokedex will use.

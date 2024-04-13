@@ -5,64 +5,114 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class PokedexImpl implements IPokedex{
+/**
+ * Implémentation de l'interface IPokedex pour la gestion des Pokémon dans le Pokédex.
+ */
+public class PokedexImpl implements IPokedex {
 
     private List&lt;Pokemon&gt; pokemons;
     private IPokemonMetadataProvider metadataProvider;
     private IPokemonFactory pokemonFactory;
 
-<span class="fc" id="L14">    public PokedexImpl(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="fc" id="L15">        this.pokemons = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L16">        this.metadataProvider = metadataProvider;</span>
-<span class="fc" id="L17">        this.pokemonFactory = pokemonFactory;</span>
-<span class="fc" id="L18">    }</span>
+    /**
+     * Constructeur de la classe PokedexImpl.
+     *
+     * @param metadataProvider Le fournisseur de métadonnées des Pokémon.
+     * @param pokemonFactory   La fabrique de Pokémon.
+     */
+<span class="fc" id="L23">    public PokedexImpl(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
+<span class="fc" id="L24">        this.pokemons = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">        this.metadataProvider = metadataProvider;</span>
+<span class="fc" id="L26">        this.pokemonFactory = pokemonFactory;</span>
+<span class="fc" id="L27">    }</span>
 
+    /**
+     * Retourne le nombre de Pokémon dans le Pokédex.
+     *
+     * @return Le nombre de Pokémon dans le Pokédex.
+     */
     @Override
     public int size() {
-<span class="fc" id="L22">        return pokemons.size();</span>
+<span class="fc" id="L36">        return pokemons.size();</span>
     }
 
+    /**
+     * Ajoute un Pokémon au Pokédex.
+     *
+     * @param pokemon Le Pokémon à ajouter.
+     * @return L'index du Pokémon ajouté.
+     */
     @Override
     public int addPokemon(Pokemon pokemon) {
-<span class="fc" id="L27">        pokemons.add(pokemon);</span>
-<span class="fc" id="L28">        return pokemons.size() - 1;</span>
+<span class="fc" id="L47">        pokemons.add(pokemon);</span>
+<span class="fc" id="L48">        return pokemons.size() - 1;</span>
     }
 
+    /**
+     * Récupère un Pokémon du Pokédex en fonction de son identifiant.
+     *
+     * @param id L'identifiant du Pokémon à récupérer.
+     * @return Le Pokémon correspondant à l'identifiant spécifié.
+     * @throws PokedexException Si aucun Pokémon avec cet identifiant n'est trouvé.
+     */
     @Override
     public Pokemon getPokemon(int id) throws PokedexException {
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        for (Pokemon pokemon : pokemons) {</span>
-<span class="pc bpc" id="L34" title="2 of 4 branches missed.">            if (pokemon != null &amp;&amp; pokemon.getIndex() == id) {</span>
-<span class="fc" id="L35">                return pokemon;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        for (Pokemon pokemon : pokemons) {</span>
+<span class="pc bpc" id="L61" title="2 of 4 branches missed.">            if (pokemon != null &amp;&amp; pokemon.getIndex() == id) {</span>
+<span class="fc" id="L62">                return pokemon;</span>
             }
-<span class="nc" id="L37">        }</span>
-<span class="fc" id="L38">        throw new PokedexException(&quot;Pokemon with ID &quot; + id + &quot; not found.&quot;);</span>
+<span class="nc" id="L64">        }</span>
+<span class="fc" id="L65">        throw new PokedexException(&quot;Pokemon with ID &quot; + id + &quot; not found.&quot;);</span>
     }
 
+    /**
+     * Récupère une copie de la liste des Pokémon du Pokédex.
+     *
+     * @return Une copie de la liste des Pokémon du Pokédex.
+     */
     @Override
     public List&lt;Pokemon&gt; getPokemons() {
-<span class="fc" id="L43">        return new ArrayList&lt;&gt;(pokemons); // Return a copy to prevent modification</span>
+<span class="fc" id="L75">        return new ArrayList&lt;&gt;(pokemons); // Return a copy to prevent modification</span>
     }
 
+    /**
+     * Récupère une liste des Pokémon du Pokédex triés selon l'ordre spécifié.
+     *
+     * @param order Le comparateur pour l'ordre de tri.
+     * @return Une liste des Pokémon triés selon l'ordre spécifié.
+     */
     @Override
     public List&lt;Pokemon&gt; getPokemons(Comparator&lt;Pokemon&gt; order) {
-<span class="fc" id="L48">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
-<span class="fc" id="L49">        sortedPokemons.sort(order);</span>
-<span class="fc" id="L50">        return sortedPokemons;</span>
+<span class="fc" id="L86">        List&lt;Pokemon&gt; sortedPokemons = new ArrayList&lt;&gt;(pokemons);</span>
+<span class="fc" id="L87">        sortedPokemons.sort(order);</span>
+<span class="fc" id="L88">        return sortedPokemons;</span>
     }
 
+    /**
+     * Récupère les métadonnées d'un Pokémon à partir de son index.
+     *
+     * @param index L'index du Pokémon.
+     * @return Les métadonnées du Pokémon correspondant à l'index spécifié.
+     * @throws PokedexException Si aucune métadonnée n'est trouvée pour le Pokémon avec l'index spécifié.
+     */
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-<span class="nc" id="L55">        return metadataProvider.getPokemonMetadata(index);</span>
+<span class="nc" id="L100">        return metadataProvider.getPokemonMetadata(index);</span>
     }
 
+    /**
+     * Crée un nouveau Pokémon avec les attributs spécifiés.
+     *
+     * @param index L'index du Pokémon.
+     * @param cp    Les points de combat du Pokémon.
+     * @param hp    Les points de vie du Pokémon.
+     * @param dust  La poussière d'étoile du Pokémon.
+     * @param candy Le bonbon du Pokémon.
+     * @return Le Pokémon créé.
+     */
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="fc" id="L60">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
+<span class="fc" id="L115">        return pokemonFactory.createPokemon(index, cp, hp, dust, candy);</span>
     }
 }
-
-
-
-
-
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

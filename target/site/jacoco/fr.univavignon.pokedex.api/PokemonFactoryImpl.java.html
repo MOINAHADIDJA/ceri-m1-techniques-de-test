@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP1 Project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactoryImpl.java</span></div><h1>PokemonFactoryImpl.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
-<span class="fc" id="L3">public class PokemonFactoryImpl implements IPokemonFactory{</span>
+/**
+ * Implémentation de l'interface IPokemonFactory permettant de créer des instances de Pokémon.
+ */
+<span class="fc" id="L6">public class PokemonFactoryImpl implements IPokemonFactory{</span>
+
+    /**
+     * Crée un Pokémon avec les paramètres spécifiés.
+     *
+     * @param index L'index du Pokémon.
+     * @param cp Les points de combat du Pokémon.
+     * @param hp Les points de vie du Pokémon.
+     * @param dust La quantité de poussière d'étoile utilisée pour améliorer le Pokémon.
+     * @param candy La quantité de bonbons utilisée pour améliorer le Pokémon.
+     * @return Une instance de Pokemon créée avec les paramètres spécifiés.
+     */
     @Override
     public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
 
         try {
-<span class="fc" id="L8">            IPokemonMetadataProvider metadataProvider = new PokemonMetadataProviderImpl();</span>
-<span class="fc" id="L9">            PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);</span>
-<span class="fc" id="L10">            return new Pokemon(index, metadata.getName(), metadata.getAttack(),metadata.getDefense(), metadata.getStamina(), cp,hp,dust,candy,0.0);</span>
-<span class="nc" id="L11">        } catch (PokedexException e) {</span>
-<span class="nc" id="L12">            e.printStackTrace();</span>
-<span class="nc" id="L13">            return null;</span>
+            // Récupération des métadonnées du Pokémon à partir de son index
+<span class="fc" id="L23">            IPokemonMetadataProvider metadataProvider = new PokemonMetadataProviderImpl();</span>
+<span class="fc" id="L24">            PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);</span>
+
+            // Création et retour du Pokémon avec les métadonnées et les paramètres spécifiés
+<span class="fc" id="L27">            return new Pokemon(index, metadata.getName(), metadata.getAttack(),</span>
+<span class="fc" id="L28">                    metadata.getDefense(), metadata.getStamina(), cp, hp, dust, candy, 0.0);</span>
+<span class="nc" id="L29">        } catch (PokedexException e) {</span>
+            // En cas d'erreur lors de la récupération des métadonnées, affiche une trace de la pile
+<span class="nc" id="L31">            e.printStackTrace();</span>
+<span class="nc" id="L32">            return null; // Retourne null en cas d'erreur</span>
         }
     }
 }

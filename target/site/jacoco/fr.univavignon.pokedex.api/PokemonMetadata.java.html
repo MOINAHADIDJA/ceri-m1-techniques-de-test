@@ -1,68 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonMetadata.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TP1 Project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonMetadata.java</span></div><h1>PokemonMetadata.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
 
 /**
- * Pokemon metadata POJO.
- * 
+ * Represents metadata for a Pokémon.
+ * This class encapsulates information about a Pokémon's index, name, attack level, defense level,
+ * and stamina level.
+ *
  * @author fv
  */
 public class PokemonMetadata {
 
-	/** Pokemon index. **/
+	/**
+	 * The index of the Pokémon.
+	 */
 	private final int index;
 
-	/** Pokemon name. **/
+	/**
+	 * The name of the Pokémon.
+	 */
 	private final String name;
 
-	/** Pokemon attack level. **/
+	/**
+	 * The attack level of the Pokémon.
+	 */
 	private final int attack;
 
-	/** Pokemon defense level. **/
+	/**
+	 * The defense level of the Pokémon.
+	 */
 	private final int defense;
 
-	/** Pokemon stamina level. **/
+	/**
+	 * The stamina level of the Pokémon.
+	 */
 	private final int stamina;
 
 	/**
-	 * Default constructor.
-	 * 
-	 * @param index Pokemon index.
-	 * @param name Pokemon name.
-	 * @param attack Attack level.
-	 * @param defense Defense level.
-	 * @param stamina Stamina level.
+	 * Constructs a new instance of PokemonMetadata.
+	 *
+	 * @param index   The index of the Pokémon.
+	 * @param name    The name of the Pokémon.
+	 * @param attack  The attack level of the Pokémon.
+	 * @param defense The defense level of the Pokémon.
+	 * @param stamina The stamina level of the Pokémon.
 	 */
-<span class="fc" id="L34">	public PokemonMetadata(final int index, final String name, final int attack, final int defense, final int stamina) {</span>
-<span class="fc" id="L35">		this.index = index;</span>
-<span class="fc" id="L36">		this.name = name;</span>
-<span class="fc" id="L37">		this.attack = attack;</span>
-<span class="fc" id="L38">		this.defense = defense;</span>
-<span class="fc" id="L39">		this.stamina = stamina;</span>
-<span class="fc" id="L40">	}</span>
-	
-	/** Index getter. **/
+	public PokemonMetadata(final int index, final String name, final int attack, final int defense,
+<span class="fc" id="L47">						   final int stamina) {</span>
+<span class="fc" id="L48">		this.index = index;</span>
+<span class="fc" id="L49">		this.name = name;</span>
+<span class="fc" id="L50">		this.attack = attack;</span>
+<span class="fc" id="L51">		this.defense = defense;</span>
+<span class="fc" id="L52">		this.stamina = stamina;</span>
+<span class="fc" id="L53">	}</span>
+
+	/**
+	 * Retrieves the index of the Pokémon.
+	 *
+	 * @return The index of the Pokémon.
+	 */
 	public int getIndex() {
-<span class="fc" id="L44">		return index;</span>
+<span class="fc" id="L61">		return index;</span>
 	}
-	
-	/** Name getter.**/
+
+	/**
+	 * Retrieves the name of the Pokémon.
+	 *
+	 * @return The name of the Pokémon.
+	 */
 	public String getName() {
-<span class="fc" id="L49">		return name;</span>
+<span class="fc" id="L70">		return name;</span>
 	}
 
-	/** Attack level getter. **/
+	/**
+	 * Retrieves the attack level of the Pokémon.
+	 *
+	 * @return The attack level of the Pokémon.
+	 */
 	public int getAttack() {
-<span class="fc" id="L54">		return attack;</span>
+<span class="fc" id="L79">		return attack;</span>
 	}
 
-	/** Defense level getter. **/
+	/**
+	 * Retrieves the defense level of the Pokémon.
+	 *
+	 * @return The defense level of the Pokémon.
+	 */
 	public int getDefense() {
-<span class="fc" id="L59">		return defense;</span>
+<span class="fc" id="L88">		return defense;</span>
 	}
 
-	/** Stamina level getter. **/
+	/**
+	 * Retrieves the stamina level of the Pokémon.
+	 *
+	 * @return The stamina level of the Pokémon.
+	 */
 	public int getStamina() {
-<span class="fc" id="L64">		return stamina;</span>
+<span class="fc" id="L97">		return stamina;</span>
 	}
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

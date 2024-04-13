@@ -1,0 +1,44 @@
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'D:/Documents/TP_TECH_TEST/TP1/ceri-m1-techniques-de-test/src/main/java;D:/Documents/TP_TECH_TEST/TP1/ceri-m1-techniques-de-test/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2024. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Documents/TP_TECH_TEST/TP1/ceri-m1-techniques-de-test/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'TP1 Project 1.0.0 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'D:/Documents/TP_TECH_TEST/TP1/ceri-m1-techniques-de-test/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'TP1 Project 1.0.0 API'
+fr.univavignon.pokedex.api
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\src\main\java = 1707233303908
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\generated-sources\annotations = 1713024574395
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\allclasses-index.html = 1713024594246
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\allpackages-index.html = 1713024594251
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\element-list = 1713024593892
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\help-doc.html = 1713024594313
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\index-all.html = 1713024594301
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\index.html = 1713024594304
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\jquery-ui.overrides.css = 1713024594386
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\member-search-index.js = 1713024594263
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\module-search-index.js = 1713024594255
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\overview-tree.html = 1713024594213
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\package-search-index.js = 1713024594257
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\script.js = 1713024594323
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\search.js = 1713024594327
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\serialized-form.html = 1713024593965
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\stylesheet.css = 1713024594319
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\tag-search-index.js = 1713024594265
+D:\Documents\TP_TECH_TEST\TP1\ceri-m1-techniques-de-test\target\apidocs\type-search-index.js = 1713024594261
