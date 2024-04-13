@@ -1,44 +1,30 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@1.4.1
-  codecov: codecov/codecov@4.0.1
-
 jobs:
   build:
     docker:
       - image: cimg/openjdk:21.0.2
-    steps:
-      - checkout
 
-  test:
-    docker:
-      - image: cimg/openjdk:21.0.2
-    steps:
-      - checkout
+    working_directory: ~/ceri-m1-techniques-de-test
 
-  upload-to-codecov:
-    docker:
-      - image: cimg/openjdk:21.0.2
     steps:
       - checkout
       - run:
-          name: "Tests with JaCoCo coverage"
-          command: mvn clean verify jacoco:report
+          name: Run Unit Tests
+          command: mvn test
       - run:
-          name: "Upload to Codecov"
-          command: bash <(curl -s https://codecov.io/bash)
-      - codecov/upload
+          name: Coverage to Codecov
+          command: |
+            echo 'export CODECOV_TOKEN=${CODECOV_TOKEN}' >> $BASH_ENV
+            source $BASH_ENV
+            bash <(curl -s https://codecov.io/bash)
+
 
 workflows:
-  maven_test:
+  version: 2
+  build:
     jobs:
-      - build
-      - maven/test:
+      - build:
           filters:
             branches:
-              only:
-                - master
-      - upload-to-codecov:
-          requires:
-            - maven/test
+              only: master
