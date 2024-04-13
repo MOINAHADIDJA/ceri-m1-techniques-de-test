@@ -12,7 +12,7 @@ public class PokedexImpl implements IPokedex {
 
     private List<Pokemon> pokemons;
     private IPokemonMetadataProvider metadataProvider;
-    private IPokemonFactory pokemonFactory;
+    private IPokemonFactory pokemonFactory;;
 
     /**
      * Constructeur de la classe PokedexImpl.
