@@ -13,6 +13,9 @@
 
 [![codecov](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test/graph/badge.svg?token=R8S81SVJOP)](https://codecov.io/gh/MOINAHADIDJA/ceri-m1-techniques-de-test)
 
+![Checkstyle](checkstyleBadge/checkstyle-result.svg)
+
+
 ## Implémentation
 
 Les implémentations concrètes des interfaces sont fournies par les classes telles que PokedexImpl, PokemonFactoryImpl, PokemonMetadataProviderImpl, etc.
