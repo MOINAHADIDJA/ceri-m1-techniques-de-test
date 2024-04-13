@@ -62,6 +62,7 @@
 <error line="23" column="49" severity="error" message="&apos;metadataProvider&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="23" column="67" severity="error" message="Le paramètre pokemonFactory devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="23" column="83" severity="error" message="&apos;pokemonFactory&apos; masque un attribut." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="24" column="43" severity="error" message="Instruction vide." source="com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck"/>
 <error line="46" column="27" severity="error" message="Le paramètre pokemon devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="56" severity="error" message="La ligne excède 80 caractères (trouvé 83)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="59" column="31" severity="error" message="Le paramètre id devrait être final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>

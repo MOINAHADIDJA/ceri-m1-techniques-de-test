@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PokedexImpl implements IPokedex {
 
-    private List<Pokemon> pokemons;
+    private List<Pokemon> pokemons;;
     private IPokemonMetadataProvider metadataProvider;
     private IPokemonFactory pokemonFactory;;
 

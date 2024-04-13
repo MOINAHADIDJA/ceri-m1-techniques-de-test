@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="fr.univavignon.pokedex.api.IPokedexTest" time="0.017" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="fr.univavignon.pokedex.api.IPokedexTest" time="0.026" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.2.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -64,8 +64,8 @@
   <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testCreatePokemon" time="0"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemon" time="0"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemonWithInvalidIndex" time="0"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testAddPokemon" time="0.008"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemonsWithComparator" time="0.007"/>
-  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemonMetadata" time="0.002"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testAddPokemon" time="0.021"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemonsWithComparator" time="0.004"/>
+  <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemonMetadata" time="0.001"/>
   <testcase classname="fr.univavignon.pokedex.api.IPokedexTest" name="testGetPokemons" time="0"/>
 </testsuite>

@@ -10,9 +10,9 @@ import java.util.List;
  */
 public class PokedexImpl implements IPokedex {
 
-    private List&lt;Pokemon&gt; pokemons;
+    private List&lt;Pokemon&gt; pokemons;;
     private IPokemonMetadataProvider metadataProvider;
-    private IPokemonFactory pokemonFactory;
+    private IPokemonFactory pokemonFactory;;
 
     /**
      * Constructeur de la classe PokedexImpl.
@@ -21,7 +21,7 @@ public class PokedexImpl implements IPokedex {
      * @param pokemonFactory   La fabrique de Pokémon.
      */
 <span class="fc" id="L23">    public PokedexImpl(IPokemonMetadataProvider metadataProvider, IPokemonFactory pokemonFactory) {</span>
-<span class="fc" id="L24">        this.pokemons = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L24">        this.pokemons = new ArrayList&lt;&gt;();;</span>
 <span class="fc" id="L25">        this.metadataProvider = metadataProvider;</span>
 <span class="fc" id="L26">        this.pokemonFactory = pokemonFactory;</span>
 <span class="fc" id="L27">    }</span>
